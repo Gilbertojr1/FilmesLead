@@ -1,0 +1,2 @@
+Para criar o banco de dados, crie uma database utilizando postgres13 com o nome de "filmes_lead" no pgadmin, clique com o botão direito nessa database, depois clique em restore e, no campo "filename", selecione o arquivo "filmes_lead" que está em: 
+src-> main-> resources-> filmes_lead
