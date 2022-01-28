@@ -28,7 +28,7 @@ import com.br.lead.filmesLead.repository.EstudioRepository;
 
 
 @RestController
-@RequestMapping("/estudios")
+@RequestMapping("/api/estudios")
 public class EstudioController {
 	
 	@Autowired

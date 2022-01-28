@@ -30,7 +30,7 @@ import com.br.lead.filmesLead.repository.EstudioRepository;
 import com.br.lead.filmesLead.repository.FilmeRepository;
 
 @RestController
-@RequestMapping("/filmes")
+@RequestMapping("/api/filmes")
 public class FilmesController {
 	
 	@Autowired

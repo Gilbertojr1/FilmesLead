@@ -26,7 +26,7 @@ import com.br.lead.filmesLead.modelo.Usuario;
 import com.br.lead.filmesLead.repository.UsuarioRepository;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
 	
 	@Autowired

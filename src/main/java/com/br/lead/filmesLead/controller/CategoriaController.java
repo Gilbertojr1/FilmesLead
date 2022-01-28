@@ -27,7 +27,7 @@ import com.br.lead.filmesLead.repository.CategoriaRepository;
 
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("/api/categorias")
 public class CategoriaController {
 	
 	@Autowired
