@@ -3,19 +3,17 @@ package com.br.lead.filmesLead.controller.form;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
-
 import com.br.lead.filmesLead.modelo.Usuario;
 import com.br.lead.filmesLead.repository.UsuarioRepository;
 
 public class AtualizacaoUsuarioForm {
-	@NotNull @NotEmpty @Length(min = 5)
+	@NotNull @NotEmpty
 	private String nome;
 	
-	@NotNull @NotEmpty @Length(min = 10)
+	@NotNull @NotEmpty
 	private String email;
 	
-	@NotNull @NotEmpty @Length(min = 6)
+	@NotNull @NotEmpty
 	private String senha;
 
 	public String getNome() {

@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
-
 import com.br.lead.filmesLead.modelo.Categoria;
 import com.br.lead.filmesLead.modelo.Estudio;
 import com.br.lead.filmesLead.modelo.Filme;
@@ -16,15 +14,15 @@ import com.br.lead.filmesLead.repository.FilmeRepository;
 
 public class AtualizacaoFilmeForm {
 	
-	@NotNull @NotEmpty @Length(min = 1)
+	@NotNull @NotEmpty
 	private String nome;
 	@NotNull 
 	private LocalDate data_lancamento;
-	@NotNull @NotEmpty @Length(min = 5)
+	@NotNull @NotEmpty
 	private String diretor;
 	@NotNull 
 	private double duracao;
-	@NotNull @NotEmpty @Length(min = 20)
+	@NotNull @NotEmpty
 	private String sinopse;
 	
 	@NotNull 
@@ -62,7 +60,7 @@ public class AtualizacaoFilmeForm {
 		filme.setData_lancamento(this.data_lancamento);
 		filme.setDiretor(this.diretor);
 		filme.setDuracao(this.duracao);
-		filme.setSinopse(sinopse);
+		filme.setSinopse(this.sinopse);
 		filme.setCategoria(categoria);
 		filme.setEstudio(estudio);
 		
