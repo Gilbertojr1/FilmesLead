@@ -16,13 +16,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.br.lead.filmesLead.controller.dto.EstudioDto;
+import com.br.lead.filmesLead.controller.dto.FilmeDto;
 import com.br.lead.filmesLead.controller.form.AtualizacaoEstudioForm;
 import com.br.lead.filmesLead.controller.form.EstudioForm;
 import com.br.lead.filmesLead.modelo.Estudio;
+import com.br.lead.filmesLead.modelo.Filme;
 import com.br.lead.filmesLead.repository.EstudioRepository;
 
 
@@ -38,6 +41,12 @@ public class EstudioController {
 	public List<EstudioDto> lista(){
 		List<Estudio> estudios = estudioRepository.findAll();
 		return EstudioDto.converter(estudios);
+	}
+	
+	@GetMapping("/filter")
+	public List<EstudioDto> findFilmeByNome(@RequestParam("nome") String nome){
+		List<Estudio> estudio = estudioRepository.findByNomeContainingIgnoreCase(nome);
+		return EstudioDto.converter(estudio);
 	}
 	
 	@PostMapping

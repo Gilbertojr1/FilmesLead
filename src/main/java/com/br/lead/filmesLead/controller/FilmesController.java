@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -46,6 +47,12 @@ public class FilmesController {
 	public List<FilmeDto> lista(){
 		List<Filme> filmes = filmeRepository.findAll();
 		return FilmeDto.converter(filmes);
+	}
+	
+	@GetMapping("/filter")
+	public List<FilmeDto> findFilmeByNome(@RequestParam("nome") String nome){
+		List<Filme> filme = filmeRepository.findByNomeContainingIgnoreCase(nome);
+		return FilmeDto.converter(filme);
 	}
 	
 	@PostMapping
@@ -100,5 +107,6 @@ public class FilmesController {
 		
 		return ResponseEntity.notFound().build();
 	}
+	
+	
 }
-
