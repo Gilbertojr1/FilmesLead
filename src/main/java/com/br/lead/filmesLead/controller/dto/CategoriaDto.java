@@ -3,7 +3,7 @@ package com.br.lead.filmesLead.controller.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.br.lead.filmesLead.modelo.Categoria;
+import com.br.lead.filmesLead.model.Categoria;
 
 public class CategoriaDto {
 	

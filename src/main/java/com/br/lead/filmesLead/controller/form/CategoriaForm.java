@@ -3,7 +3,7 @@ package com.br.lead.filmesLead.controller.form;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.br.lead.filmesLead.modelo.Categoria;
+import com.br.lead.filmesLead.model.Categoria;
 
 public class CategoriaForm {
 	@NotNull @NotEmpty

@@ -3,7 +3,7 @@ package com.br.lead.filmesLead.controller.form;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.br.lead.filmesLead.modelo.Estudio;
+import com.br.lead.filmesLead.model.Estudio;
 
 public class EstudioForm {
 	@NotNull @NotEmpty

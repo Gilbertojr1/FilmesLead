@@ -1,4 +1,4 @@
-package com.br.lead.filmesLead.modelo;
+package com.br.lead.filmesLead.model;
 
 import java.util.Objects;
 

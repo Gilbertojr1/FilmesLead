@@ -5,9 +5,9 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.br.lead.filmesLead.modelo.Categoria;
-import com.br.lead.filmesLead.modelo.Estudio;
-import com.br.lead.filmesLead.modelo.Filme;
+import com.br.lead.filmesLead.model.Categoria;
+import com.br.lead.filmesLead.model.Estudio;
+import com.br.lead.filmesLead.model.Filme;
 import com.br.lead.filmesLead.repository.CategoriaRepository;
 import com.br.lead.filmesLead.repository.EstudioRepository;
 

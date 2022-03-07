@@ -1,4 +1,4 @@
-package com.br.lead.filmesLead.config.validacao;
+package com.br.lead.filmesLead.config.validation;
 
 import java.util.ArrayList;
 import java.util.List;

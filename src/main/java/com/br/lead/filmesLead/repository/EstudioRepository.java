@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.br.lead.filmesLead.modelo.Estudio;
+import com.br.lead.filmesLead.model.Estudio;
 
 public interface EstudioRepository extends JpaRepository<Estudio, Long> {
 	

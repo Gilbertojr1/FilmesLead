@@ -22,7 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.br.lead.filmesLead.controller.dto.CategoriaDto;
 import com.br.lead.filmesLead.controller.form.AtualizacaoCategoriaForm;
 import com.br.lead.filmesLead.controller.form.CategoriaForm;
-import com.br.lead.filmesLead.modelo.Categoria;
+import com.br.lead.filmesLead.model.Categoria;
 import com.br.lead.filmesLead.repository.CategoriaRepository;
 
 

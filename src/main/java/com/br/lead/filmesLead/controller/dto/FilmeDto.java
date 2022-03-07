@@ -4,9 +4,9 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.br.lead.filmesLead.modelo.Categoria;
-import com.br.lead.filmesLead.modelo.Estudio;
-import com.br.lead.filmesLead.modelo.Filme;
+import com.br.lead.filmesLead.model.Categoria;
+import com.br.lead.filmesLead.model.Estudio;
+import com.br.lead.filmesLead.model.Filme;
 
 public class FilmeDto {
 	

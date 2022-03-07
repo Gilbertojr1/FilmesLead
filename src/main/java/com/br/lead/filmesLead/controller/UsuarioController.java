@@ -22,7 +22,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.br.lead.filmesLead.controller.dto.UsuarioDto;
 import com.br.lead.filmesLead.controller.form.AtualizacaoUsuarioForm;
 import com.br.lead.filmesLead.controller.form.UsuarioForm;
-import com.br.lead.filmesLead.modelo.Usuario;
+import com.br.lead.filmesLead.model.Usuario;
 import com.br.lead.filmesLead.repository.UsuarioRepository;
 
 @RestController

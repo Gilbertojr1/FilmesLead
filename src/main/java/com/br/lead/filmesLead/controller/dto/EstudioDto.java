@@ -3,7 +3,7 @@ package com.br.lead.filmesLead.controller.dto;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.br.lead.filmesLead.modelo.Estudio;
+import com.br.lead.filmesLead.model.Estudio;
 
 public class EstudioDto {
 	

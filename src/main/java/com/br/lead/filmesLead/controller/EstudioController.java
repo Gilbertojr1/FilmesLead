@@ -24,11 +24,9 @@ import com.br.lead.filmesLead.controller.dto.EstudioDto;
 import com.br.lead.filmesLead.controller.dto.FilmeDto;
 import com.br.lead.filmesLead.controller.form.AtualizacaoEstudioForm;
 import com.br.lead.filmesLead.controller.form.EstudioForm;
-import com.br.lead.filmesLead.modelo.Estudio;
-import com.br.lead.filmesLead.modelo.Filme;
+import com.br.lead.filmesLead.model.Estudio;
+import com.br.lead.filmesLead.model.Filme;
 import com.br.lead.filmesLead.repository.EstudioRepository;
-
-
 
 @RestController
 @RequestMapping("/api/estudios")
