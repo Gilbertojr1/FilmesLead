@@ -47,12 +47,17 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 		.antMatchers(HttpMethod.GET ,"/api/").permitAll()
 		.antMatchers(HttpMethod.GET ,"/api/*").permitAll()
+		.antMatchers(HttpMethod.POST ,"/api/").permitAll()
+		
 		.antMatchers(HttpMethod.GET ,"/api/filmes/*").permitAll()
+		.antMatchers(HttpMethod.POST ,"/api/filmes").permitAll()
+		.antMatchers(HttpMethod.DELETE ,"/api/filmes/*").permitAll()
+		
 		.antMatchers(HttpMethod.GET ,"/api/estudios/*").permitAll()
 		.antMatchers(HttpMethod.GET ,"/api/categorias/*").permitAll()
-		.antMatchers(HttpMethod.POST ,"/api/").permitAll()
-		.antMatchers(HttpMethod.POST ,"/api/").permitAll()
+		
 		.antMatchers(HttpMethod.POST ,"/auth*").permitAll()
+		
 		.antMatchers(HttpMethod.POST ,"/usuarios/*").permitAll()
 		.antMatchers(HttpMethod.POST ,"/usuarios/").permitAll()
 		.antMatchers(HttpMethod.DELETE ,"/usuarios/*").permitAll()
