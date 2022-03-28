@@ -49,11 +49,31 @@ public class FilmesController {
 		return FilmeDto.converter(filmes);
 	}
 	
-	@GetMapping("/filter")
+	@GetMapping("/filterNome")
 	public List<FilmeDto> findFilmeByNome(@RequestParam("nome") String nome){
 		List<Filme> filme = filmeRepository.findByNomeContainingIgnoreCase(nome);
 		return FilmeDto.converter(filme);
 	}
+	
+	@GetMapping("/filterCategoria") 
+	public List<FilmeDto> findFilmeByCategoriaId(@RequestParam(required = false, name = "categoria") Long categoria_id) { 
+		List<Filme> filme = filmeRepository.findByCategoria_id(categoria_id); 
+		return FilmeDto.converter(filme); 
+	}
+	
+	@GetMapping("/filterNomeECategoria") 
+	public List<FilmeDto> findFilmeByNomeCategoriaId(@RequestParam(required = false, name = "nome") String nome, @RequestParam(required = false, name = "categoria") Long categoria_id) { 
+		List<Filme> filme = filmeRepository.findByNomeContainingIgnoreCaseAndCategoria_id(nome, categoria_id); 
+		return FilmeDto.converter(filme); 
+	}
+	
+	/*
+	 * @GetMapping("/filterCategoriaNome") public List<FilmeDto>
+	 * findFilmeByCategoriaId(@RequestParam(required = false, name = "nome") String
+	 * nome, @RequestParam(required = false, name = "categoria") Long ID_categoria){
+	 * List<Filme> filme = filmeRepository.filterNomeAndCategoria(nome,
+	 * ID_categoria); System.out.println(filme); return FilmeDto.converter(filme); }
+	 */
 	
 	@PostMapping
 	@Transactional

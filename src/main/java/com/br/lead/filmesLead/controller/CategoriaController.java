@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -37,6 +38,12 @@ public class CategoriaController {
 	public List<CategoriaDto> lista(){
 		List<Categoria> categorias = categoriaRepository.findAll();
 		return CategoriaDto.converter(categorias);
+	}
+	
+	@GetMapping("/filter")
+	public List<CategoriaDto> findCategoriaByNome(@RequestParam("nome") String nome){
+		List<Categoria> categoria = categoriaRepository.findByNomeContainingIgnoreCase(nome);
+		return CategoriaDto.converter(categoria);
 	}
 	
 	@PostMapping

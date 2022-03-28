@@ -11,4 +11,5 @@ public interface EstudioRepository extends JpaRepository<Estudio, Long> {
 	List<Estudio> findByNomeContainingIgnoreCase(String nome);
 	
 	Estudio findByNome(String nomeEstudio);
+	
 }

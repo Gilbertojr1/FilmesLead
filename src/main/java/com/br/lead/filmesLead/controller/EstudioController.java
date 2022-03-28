@@ -42,7 +42,7 @@ public class EstudioController {
 	}
 	
 	@GetMapping("/filter")
-	public List<EstudioDto> findFilmeByNome(@RequestParam("nome") String nome){
+	public List<EstudioDto> findEstudioByNome(@RequestParam("nome") String nome){
 		List<Estudio> estudio = estudioRepository.findByNomeContainingIgnoreCase(nome);
 		return EstudioDto.converter(estudio);
 	}
