@@ -52,16 +52,22 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET ,"/api/filmes/*").permitAll()
 		.antMatchers(HttpMethod.POST ,"/api/filmes").permitAll()
 		.antMatchers(HttpMethod.DELETE ,"/api/filmes/*").permitAll()
+		.antMatchers(HttpMethod.PUT ,"/api/filmes/*").permitAll()
+		
+		.antMatchers(HttpMethod.GET ,"/api/categorias/*").permitAll()
+		.antMatchers(HttpMethod.POST ,"/api/categorias").permitAll()
+		.antMatchers(HttpMethod.DELETE ,"/api/categorias/*").permitAll()
+		.antMatchers(HttpMethod.PUT ,"/api/categorias/*").permitAll()
 		
 		.antMatchers(HttpMethod.GET ,"/api/estudios/*").permitAll()
-		.antMatchers(HttpMethod.GET ,"/api/categorias/*").permitAll()
+		.antMatchers(HttpMethod.POST ,"/api/estudios").permitAll()
+		.antMatchers(HttpMethod.DELETE ,"/api/estudios/*").permitAll()
+		.antMatchers(HttpMethod.PUT ,"/api/estudios/*").permitAll()
 		
 		.antMatchers(HttpMethod.POST ,"/auth*").permitAll()
 		
-		.antMatchers(HttpMethod.POST ,"/usuarios/*").permitAll()
 		.antMatchers(HttpMethod.POST ,"/usuarios/").permitAll()
 		.antMatchers(HttpMethod.DELETE ,"/usuarios/*").permitAll()
-		.antMatchers(HttpMethod.DELETE ,"/usuarios/").permitAll()
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

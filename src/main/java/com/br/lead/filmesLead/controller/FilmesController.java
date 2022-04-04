@@ -50,21 +50,65 @@ public class FilmesController {
 	}
 	
 	@GetMapping("/filterNome")
-	public List<FilmeDto> findFilmeByNome(@RequestParam("nome") String nome){
+	public List<FilmeDto> filmeByNome(@RequestParam("nome") String nome){
 		List<Filme> filme = filmeRepository.findByNomeContainingIgnoreCase(nome);
 		return FilmeDto.converter(filme);
 	}
 	
 	@GetMapping("/filterCategoria") 
-	public List<FilmeDto> findFilmeByCategoriaId(@RequestParam(required = false, name = "categoria") Long categoria_id) { 
-		List<Filme> filme = filmeRepository.findByCategoria_id(categoria_id); 
-		return FilmeDto.converter(filme); 
+	public List<FilmeDto> filmeByCategoriaId(@RequestParam(required = false, name = "categoria") Long categoria_id) { 
+		if(categoria_id != null) {
+			List<Filme> filme = filmeRepository.findByCategoria_id(categoria_id); 
+			return FilmeDto.converter(filme); 
+		}
+		return lista();
 	}
 	
-	@GetMapping("/filterNomeECategoria") 
-	public List<FilmeDto> findFilmeByNomeCategoriaId(@RequestParam(required = false, name = "nome") String nome, @RequestParam(required = false, name = "categoria") Long categoria_id) { 
-		List<Filme> filme = filmeRepository.findByNomeContainingIgnoreCaseAndCategoria_id(nome, categoria_id); 
-		return FilmeDto.converter(filme); 
+	@GetMapping("/filterEstudio") 
+	public List<FilmeDto> filmeByEstudioId(@RequestParam(required = false, name = "estudio") Long estudio_id) {
+		if(estudio_id != null) {
+			List<Filme> filme = filmeRepository.findByEstudio_id(estudio_id);
+			return FilmeDto.converter(filme);
+		}
+		return lista();
+	}
+	
+	@GetMapping("/filterNomeCategoriaEstudio") 
+	public List<FilmeDto> filmeByNomeCategoriaIdEstudioId(@RequestParam(required = false, name = "nome") String nome, 
+			@RequestParam(required = false, name = "categoria") Long categoria_id,
+			@RequestParam(required = false, name = "estudio") Long estudio_id) { 
+		List<Filme> filme;
+		
+		if(nome.length() > 0 && categoria_id != null && estudio_id != null) {
+			filme = filmeRepository.findByNomeContainingIgnoreCaseAndCategoria_idAndEstudio_id(nome, categoria_id, estudio_id); 
+			return FilmeDto.converter(filme); 
+			
+		} else if (nome.length() > 0 && categoria_id == null && estudio_id == null) {
+			filme = filmeRepository.findByNomeContainingIgnoreCase(nome);
+			return FilmeDto.converter(filme);
+			
+		} else if (nome.length() > 0 && estudio_id != null) {
+			filme = filmeRepository.findByNomeContainingIgnoreCaseAndEstudio_id(nome, estudio_id);
+			return FilmeDto.converter(filme); 
+		
+		} else if (nome.length() > 0 && categoria_id != null) {
+			filme = filmeRepository.findByNomeContainingIgnoreCaseAndCategoria_id(nome, categoria_id);
+			return FilmeDto.converter(filme);
+			
+		} else if(estudio_id == null && categoria_id != null) {
+			filme = filmeRepository.findByCategoria_id(categoria_id);
+			return FilmeDto.converter(filme); 
+			
+		} else if(categoria_id == null && estudio_id != null) {
+			filme = filmeRepository.findByEstudio_id(estudio_id);
+			return FilmeDto.converter(filme); 
+			
+		} else if (categoria_id != null && estudio_id != null) {
+			filme = filmeRepository.findByCategoria_idAndEstudio_id(categoria_id, estudio_id);
+			return FilmeDto.converter(filme);
+		}
+		
+		return lista();
 	}
 	
 	/*
