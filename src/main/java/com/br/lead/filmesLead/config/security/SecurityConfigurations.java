@@ -49,6 +49,9 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.GET ,"/api/*").permitAll()
 		.antMatchers(HttpMethod.POST ,"/api/").permitAll()
 		
+		.antMatchers(HttpMethod.POST ,"/api/usuarios").permitAll()
+		.antMatchers(HttpMethod.DELETE ,"/api/usuarios/*").permitAll()
+		
 		.antMatchers(HttpMethod.GET ,"/api/filmes/*").permitAll()
 		.antMatchers(HttpMethod.POST ,"/api/filmes").permitAll()
 		.antMatchers(HttpMethod.DELETE ,"/api/filmes/*").permitAll()
@@ -64,10 +67,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 		.antMatchers(HttpMethod.DELETE ,"/api/estudios/*").permitAll()
 		.antMatchers(HttpMethod.PUT ,"/api/estudios/*").permitAll()
 		
-		.antMatchers(HttpMethod.POST ,"/auth*").permitAll()
+		.antMatchers(HttpMethod.POST ,"/api/auth").permitAll()
 		
-		.antMatchers(HttpMethod.POST ,"/usuarios/").permitAll()
-		.antMatchers(HttpMethod.DELETE ,"/usuarios/*").permitAll()
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

@@ -73,6 +73,27 @@ public class FilmesController {
 		return lista();
 	}
 	
+	@GetMapping("/filterCategoriaEstudio") 
+	public List<FilmeDto> filmeByCategoriaIdEstudioId(@RequestParam(required = false, name = "categoria") Long categoria_id, 
+			@RequestParam(required = false, name = "estudio") Long estudio_id) {
+		List<Filme> filme;
+		
+		if(categoria_id != null && estudio_id != null) {
+			filme = filmeRepository.findByCategoria_idAndEstudio_id(categoria_id, estudio_id);
+			return FilmeDto.converter(filme);
+			
+		} else if(categoria_id == null && estudio_id != null) {
+			filme = filmeRepository.findByEstudio_id(estudio_id);
+			return FilmeDto.converter(filme);
+			
+		} else if(categoria_id != null && estudio_id == null) {
+			filme = filmeRepository.findByCategoria_id(categoria_id);
+			return FilmeDto.converter(filme);
+		}
+		
+		return lista();
+	}
+	
 	@GetMapping("/filterNomeCategoriaEstudio") 
 	public List<FilmeDto> filmeByNomeCategoriaIdEstudioId(@RequestParam(required = false, name = "nome") String nome, 
 			@RequestParam(required = false, name = "categoria") Long categoria_id,
@@ -106,18 +127,13 @@ public class FilmesController {
 		} else if (categoria_id != null && estudio_id != null) {
 			filme = filmeRepository.findByCategoria_idAndEstudio_id(categoria_id, estudio_id);
 			return FilmeDto.converter(filme);
+			
+		} else if(categoria_id == null && estudio_id == null) {
+			return lista();
 		}
 		
 		return lista();
 	}
-	
-	/*
-	 * @GetMapping("/filterCategoriaNome") public List<FilmeDto>
-	 * findFilmeByCategoriaId(@RequestParam(required = false, name = "nome") String
-	 * nome, @RequestParam(required = false, name = "categoria") Long ID_categoria){
-	 * List<Filme> filme = filmeRepository.filterNomeAndCategoria(nome,
-	 * ID_categoria); System.out.println(filme); return FilmeDto.converter(filme); }
-	 */
 	
 	@PostMapping
 	@Transactional

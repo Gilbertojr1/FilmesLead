@@ -3,6 +3,7 @@ package com.br.lead.filmesLead.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,7 +19,7 @@ import com.br.lead.filmesLead.controller.dto.TokenDto;
 import com.br.lead.filmesLead.controller.form.LoginForm;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AutenticacaoController {
 	
 	@Autowired
@@ -28,7 +29,7 @@ public class AutenticacaoController {
 	private TokenService tokenService;
 	
 	@PostMapping
-	public ResponseEntity<TokenDto> autenticar(@RequestBody @Valid LoginForm form){
+	public ResponseEntity autenticar(@RequestBody @Valid LoginForm form){
 		UsernamePasswordAuthenticationToken dadosLogin = form.converter();
 		
 		try {
@@ -37,7 +38,7 @@ public class AutenticacaoController {
 			
 			return ResponseEntity.ok(new TokenDto(token, "Bearer"));
 		} catch (AuthenticationException e) {
-			return ResponseEntity.badRequest().build();
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email ou senha inválidos");
 		}
 	}
 }
