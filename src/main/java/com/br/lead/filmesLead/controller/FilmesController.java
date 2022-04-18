@@ -55,6 +55,13 @@ public class FilmesController {
 		return FilmeDto.converter(filme);
 	}
 	
+	/*@GetMapping("/filterNomeCategoriaId")
+	public List<FilmeDto> filmeByDiretor(@RequestParam("nome") String nome, 
+			@RequestParam("categoria") Long categoria){
+		List<Filme> filme = filmeRepository.filterNomeAndCategoria(nome, categoria);
+		return FilmeDto.converter(filme);
+	}*/
+	
 	@GetMapping("/filterCategoria") 
 	public List<FilmeDto> filmeByCategoriaId(@RequestParam(required = false, name = "categoria") Long categoria_id) { 
 		if(categoria_id != null) {

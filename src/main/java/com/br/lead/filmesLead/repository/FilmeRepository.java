@@ -14,7 +14,11 @@ public interface FilmeRepository extends JpaRepository<Filme, Long> {
 	
 	List<Filme> findByNomeContainingIgnoreCase(String nome);
 	
+	List<Filme> findByDiretorContainingIgnoreCase(String diretor);
+	
 	List<Filme> findByNomeContainingIgnoreCaseAndCategoria_idAndEstudio_id(String nome, Long categoria_id, Long estudio_id);
+	
+	List<Filme> findByNomeContainingIgnoreCaseAndDiretorContainingIgnoreCaseAndCategoria_idAndEstudio_id(String nome, String diretor, Long categoria_id, Long estudio_id);
 	
 	List<Filme> findByNomeContainingIgnoreCaseAndCategoria_id(String nome, Long categoria_id);
 	
@@ -26,10 +30,11 @@ public interface FilmeRepository extends JpaRepository<Filme, Long> {
 	
 	List<Filme> findByEstudio_id(Long estudio_id);
 	
-	@Query(value = "SELECT * FROM filme WHERE filme.nome ILIKE '%:nome%' AND (:categoria_id IS NULL OR filme.categoria_id = :categoria_id)", nativeQuery = true) 
-	List<Filme> filterNomeAndCategoria(@Param(value = "nome") String nome, @Param(value = "categoria_id") Long categoria_id);
+	/*
+	@Query(value = "SELECT * FROM filme WHERE filme.nome ILIKE CONCAT('%', :nome, '%') AND (:categoriaId IS NULL OR filme.categoria_id = :categoriaId)", nativeQuery = true) 
+	List<Filme> filterNomeAndCategoria(@Param(value = "nome") String nome, @Param(value = "categoriaId") Long categoria);
 	
 	@Query("SELECT m FROM Filme m WHERE m.nome LIKE %:nome%") 
 	List<Filme> searchByNomeLike(String nome);
-	
+	*/
 }

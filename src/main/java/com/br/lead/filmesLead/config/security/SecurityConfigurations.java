@@ -45,29 +45,15 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+		
 		.antMatchers(HttpMethod.GET ,"/api/").permitAll()
 		.antMatchers(HttpMethod.GET ,"/api/*").permitAll()
-		.antMatchers(HttpMethod.POST ,"/api/").permitAll()
-		
-		.antMatchers(HttpMethod.POST ,"/api/usuarios").permitAll()
-		.antMatchers(HttpMethod.DELETE ,"/api/usuarios/*").permitAll()
-		
 		.antMatchers(HttpMethod.GET ,"/api/filmes/*").permitAll()
-		.antMatchers(HttpMethod.POST ,"/api/filmes").permitAll()
-		.antMatchers(HttpMethod.DELETE ,"/api/filmes/*").permitAll()
-		.antMatchers(HttpMethod.PUT ,"/api/filmes/*").permitAll()
-		
 		.antMatchers(HttpMethod.GET ,"/api/categorias/*").permitAll()
-		.antMatchers(HttpMethod.POST ,"/api/categorias").permitAll()
-		.antMatchers(HttpMethod.DELETE ,"/api/categorias/*").permitAll()
-		.antMatchers(HttpMethod.PUT ,"/api/categorias/*").permitAll()
-		
-		.antMatchers(HttpMethod.GET ,"/api/estudios/*").permitAll()
-		.antMatchers(HttpMethod.POST ,"/api/estudios").permitAll()
-		.antMatchers(HttpMethod.DELETE ,"/api/estudios/*").permitAll()
-		.antMatchers(HttpMethod.PUT ,"/api/estudios/*").permitAll()
-		
+		.antMatchers(HttpMethod.GET ,"/api/estudios/*").permitAll()	
 		.antMatchers(HttpMethod.POST ,"/api/auth").permitAll()
+		.antMatchers(HttpMethod.POST ,"/api/").permitAll()
+		.antMatchers(HttpMethod.POST ,"/api/usuarios").permitAll()
 		
 		.anyRequest().authenticated()
 		.and().csrf().disable()
